@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
@@ -5,35 +6,34 @@ import javax.swing.JOptionPane;
 public class MainClass {
 
 	public static void main(String[] args) {
-		JOptionPane.showMessageDialog(null, "Guess the number I'm thinking of.It's between 1-10");
 		Scanner tKeyboard = new Scanner(System.in);
+		int i = 0 + (int) (Math.random() * 10);
+		int tInput = 0;
 
-		int i = 0 + (int) ( Math.random() * 10 );
-		int tInput = 10;
-		
-		do {
-			tInput = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the number I'm thinking of."));
 
-			if (tInput == i) 
-			{
-				JOptionPane.showMessageDialog(null, "You've guessed it.");
+		for(int count = 0; count < 3; count++)
+		{
+			tInput = Integer.parseInt(JOptionPane.showInputDialog(null, "Guess the number I'm thinking of.It's between 1-10"));
+
+			if (tInput == i) {
+				JOptionPane.showMessageDialog(null, "You've guessed it!");
 			}
-			else
+			else 
 			{
-				JOptionPane.showMessageDialog(null, "Wrong.");
-				if(tInput < i && tInput < 1)
+				if (tInput < i )
 				{
-					JOptionPane.showMessageDialog(null, "Too low. Numbers below 1 are not valid. Enter a higher number.");
+					JOptionPane.showMessageDialog(null, "Too small.");
 				}
-				else if(tInput > i && tInput > 10)
+				else
 				{
-					JOptionPane.showMessageDialog(null, "Too high. Numbers above 10 are not valid. Enter a lower number.");
+					JOptionPane.showMessageDialog(null, "Too large.");
 				}
-
 			}
-		} while (tInput != i);
+		}
+		JOptionPane.showMessageDialog(null, "You only get 3 tries!");
 
 
 	}
 
 }
+
